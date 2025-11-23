@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Резюме – OSINT / Информационная безопасность</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: #f4f5f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 32px 40px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+            border-radius: 12px;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .two-cols {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .col {
+            flex: 1 1 260px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .info-list li {
+            margin-bottom: 4px;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.55;
+            margin-top: 4px;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            margin-top: 4px;
+            margin-bottom: 8px;
+            padding-left: 18px;
+        }
+
+        ul li {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .tag-line {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .contact {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .contact span {
+            display: inline-block;
+            margin-right: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .page {
+                margin: 16px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- Шапка -->
+    <header>
+        <h1>Имя Фамилия Отчество</h1>
+        <div class="subtitle">OSINT-энтузиаст / Начинающий специалист по информационной безопасности</div>
+        <div class="contact">
+            <span>Телефон: +380 (__) ___-__-__</span>
+            <span>E-mail: yourmail@domain.ua</span>
+        </div>
+        <div class="tag-line">
+            Занятость: полная · График: полный день · Готовность к командировкам: при необходимости
+        </div>
+    </header>
+
+    <!-- Личная информация -->
+    <section>
+        <h2 class="section-title">Личная информация</h2>
+        <ul class="info-list">
+            <li><span class="label">Гражданство:</span> Украина</li>
+            <li><span class="label">Место проживания:</span> (город)</li>
+            <li><span class="label">Переезд:</span> возможен / рассматриваю</li>
+            <li><span class="label">Образование:</span> (указать при необходимости)</li>
+            <li><span class="label">Дата рождения:</span> (указать)</li>
+            <li><span class="label">Пол:</span> мужской</li>
+        </ul>
+    </section>
+
+    <!-- О себе -->
+    <section>
+        <h2 class="section-title">О себе</h2>
+        <p>
+            Начинающий специалист в сфере OSINT и информационной безопасности. Занимаюсь самостоятельной практикой:
+            изучаю методы цифровой разведки, фотофорензику, поиск по открытым источникам, исследование цифровых
+            следов, а также автоматизацию задач с помощью Python.
+        </p>
+        <p>
+            Работаю с различными сервисами, инструментами, средствами анонимизации и основами кибербезопасности.
+            Интересуюсь ИИ-моделями, обработкой данных и техническими проектами на базе микроконтроллеров
+            и одноплатных компьютеров.
+        </p>
+    </section>
+
+    <!-- Опыт / деятельность -->
+    <section>
+        <h2 class="section-title">Опыт / Деятельность (самостоятельная практика)</h2>
+        <h3>Основные направления, в которых уже работал самостоятельно</h3>
+        <ul>
+            <li>Поиск и анализ информации из открытых источников</li>
+            <li>Поиск данных по <b>номеру телефона, e-mail, имени, номеру автомобиля</b></li>
+            <li>Поиск информации в <b>социальных сетях, открытых базах и специализированных поисковых сервисах</b></li>
+            <li>Фотофоренсика: анализ изображений, выявление подделок, сравнение снимков, определение цифровых манипуляций (fotoforensics.com, 29a.ch)</li>
+            <li>Реверс изображений через различные поисковые системы Google Images,Bing,Yandex, Pimeyes</li>
+            <li>Создание технических (одноразовых) аккаунтов с использованием сервисов приёма SMS: <b>5sim, SMS-Activate</b></li>
+            <li>Работа с прокси и обход ограничений (ProxyChains, Proxifier)</li>
+            <li>Базовый анализ безопасности,тестовые проверки конфигураций и понимаение tcp/ip,OSI</li>
+            <li>Написание Python-скриптов для автоматизации OSINT-задач и создание простых веб-сайтов</li>
+            <li>Создание дипфейков при помощи <b>DeepFaceLab, Roop, FaceFusion</b></li>
+            <li>Использование больших и малых языковых моделей: <b>LLaMA 2–3 (7B–70B), Mistral, ChatGPT, Grok</b></li>
+            <li><b>Работа с микроконтроллерами и одноплатными ПК:</b> Raspberry Pi Pico (MicroPython), Raspberry Pi 5;
+                настройка системы, GPIO, подключение периферии, создание небольших проектов автоматизации
+            </li>
+        </ul>
+    </section>
+
+    <!-- Навыки -->
+    <section>
+        <h2 class="section-title">Навыки</h2>
+
+        <div class="two-cols">
+            <div class="col">
+                <h3>🔎 OSINT</h3>
+                <ul>
+                    <li>Сбор и структурирование данных из открытых источников</li>
+                    <li>Поиск по телефонным номерам, e-mail, соцсетям, автомобильным номерам</li>
+                    <li>Анализ цифровых следов и связей между объектами</li>
+                    <li>Фотофорензика и выявление манипуляций в изображениях</li>
+                    <li>Реверс-поиск изображений</li>
+                    <li>Работа с временными номерами и техническими аккаунтами</li>
+                    <li>Прокси, VPN, антидетект-инструменты</li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h3>🛡 Кибербезопасность</h3>
+                <ul>
+                    <li>Базовые принципы защиты информации</li>
+                    <li>Первичные проверки конфигураций и сетевой безопасности</li>
+                    <li>Работа с Linux, сетевыми утилитами и терминалом</li>
+                    <li>Понимание основных угроз и способов их минимизации</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Программирование и тех. навыки -->
+    <section>
+        <h2 class="section-title">Программирование и технические навыки</h2>
+
+        <h3>Python</h3>
+        <ul>
+            <li>Автоматизация поиска данных</li>
+            <li>Парсеры, взаимодействие с API, работа с JSON/XML</li>
+            <li>Создание простых веб-приложений (Flask)</li>
+            <li><b>Библиотеки:</b> Selenium, Requests, Scrapy, BeautifulSoup4, lxml, Flask</li>
+        </ul>
+
+        <h3>Telegram API</h3>
+        <ul>
+            <li>Pyrogram, Aiogram, Telethon</li>
+        </ul>
+
+        <h3>Микроконтроллеры и SBC</h3>
+        <ul>
+            <li>Raspberry Pi Pico (MicroPython)</li>
+            <li>Raspberry Pi 5: настройка системы, GPIO, работа с периферией</li>
+            <li>Небольшие DIY- и IoT-проекты</li>
+        </ul>
+
+        <h3>Дополнительно</h3>
+        <ul>
+            <li>Bash, PowerShell</li>
+            <li>Git</li>
+            <li>Linux</li>
+        </ul>
+    </section>
+
+    <!-- Дополнительная информация -->
+    <section>
+        <h2 class="section-title">Дополнительная информация</h2>
+        <ul>
+            <li><b>Английский язык:</b> на базовом, но этого достаточно для задач, с которыми работал</li>
+            <li><b>Интересы:</b> OSINT, информационная безопасность, ИИ, Python, микроконтроллеры и одноплатные компьютеры</li>
+            <li><b>Личные качества:</b> внимательность, аналитическое мышление, усидчивость, любознательность,
+                быстрая обучаемость, самостоятельность
+            </li>
+        </ul>
+    </section>
+    <div style="text-align: center; margin-top: 32px;">
+    <a href="poisk_nigadya.html"
+       style="
+           display: inline-block;
+           padding: 12px 22px;
+           background-color: #0057ff;
+           color: #fff;
+           text-decoration: none;
+           font-size: 15px;
+           border-radius: 8px;
+           font-weight: 600;
+           transition: 0.2s;
+       "
+       onmouseover="this.style.backgroundColor='#174aff'"
+       onmouseout="this.style.backgroundColor='#0057ff'">
+        🔍 Пример поиска “нигадяя”
+    </a>
+</div>
+
+    <br>
+    <br>
+</div>
+</body>
+</html>
