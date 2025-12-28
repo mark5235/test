@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Модельное окно бота</title>
+<style>
+body { font-family: Arial, sans-serif; background: #f0f2f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+.container { background:white; padding:20px 30px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; width:300px; }
+button { padding:10px 20px; margin:10px 0; border:none; border-radius:10px; background-color:#0088cc; color:white; font-size:16px; cursor:pointer; transition:0.3s; }
+button:hover { background-color:#006699; }
+#output { margin-top:15px; font-weight:bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Мое модельное окно</h2>
+<p>Выберите действие:</p>
+<button onclick="createBot()">Создать бота</button>
+<button onclick="myBots()">Мои боты</button>
+<p id="output"></p>
+</div>
+<script>
+function createBot() { document.getElementById("output").innerText = "Бот создан успешно!"; }
+function myBots() { document.getElementById("output").innerText = "У вас пока нет ботов."; }
+</script>
+</body>
+</html>
